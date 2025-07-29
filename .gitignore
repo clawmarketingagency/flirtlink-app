@@ -1,0 +1,12 @@
+# Ignore node_modules and Python cache
+node_modules/
+.env
+*.pyc
+__pycache__/
+*.sqlite3
+.DS_Store
+
+# Optional: Vercel / Railway artifacts
+.vercel/
+.venv/
+*.log
