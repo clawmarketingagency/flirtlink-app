@@ -4,7 +4,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL
+const API_BASE = process.env.https://flirtlink-app.up.railway.ap
 
 export default function Home() {
   const [step, setStep] = useState('create')
@@ -18,22 +18,23 @@ export default function Home() {
   const [reply, setReply] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const handleCreateAgent = async () => {
-    try {
-      const res = await axios.post(`${API_BASE}/create-agent`, {
-        creator_id: creatorId,
-        persona_name: personaName,
-        personality_prompt: prompt,
-        links,
-      })
-      setAgentId(res.data.agent_id)
-      setStep('chat')
-    } catch (e) {
-      alert('Error creating agent')
-    }
+const handleCreateAgent = async () = > {
+  try {
+    const res = await axios.post(`${API_BASE} / create-agent`, {
+      creator_id: creatorId,
+      persona_name: personaName,
+      personality_prompt: prompt,
+      links,
+    })
+    setAgentId(res.data.agent_id)
+    setStep('chat')
+  } catch(e) {
+    console.error('Create Agent Error:', e)
+    alert('Error creating agent')
   }
+}
 
-  const sendChat = async () => {
+const sendChat = async () => {
     if (!userInput) return
     setLoading(true)
     setChatLog(prev => [...prev, `You: ${userInput}`])
