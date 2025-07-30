@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FlirtLink Bio Generator 💋</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-pink-50 flex flex-col items-center justify-center min-h-screen px-4 py-8">
+    <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
+        <h1 class="text-3xl font-bold text-pink-600 mb-4 text-center">FlirtLink Bio Generator 💖</h1>
+
+        {% if bio %}
+            <div class="bg-pink-100 border border-pink-300 rounded-lg p-4 mb-4 text-center">
+                <p class="text-pink-800 font-semibold text-lg">{{ bio }}</p>
+            </div>
+        {% endif %}
+
+        <form method="post" action="/generate" class="space-y-4">
+            <input type="text" name="vibe" placeholder="Your vibe in 3 words" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-pink-500 focus:border-pink-500" required>
+            <input type="text" name="emoji" placeholder="Your favorite emoji" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-pink-500 focus:border-pink-500" required>
+            <input type="text" name="reason" placeholder="Why people are really here..." class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-pink-500 focus:border-pink-500" required>
+            <button type="submit" class="w-full bg-pink-500 text-white font-bold py-2 rounded-lg hover:bg-pink-600 transition">
+                Generate My Bio 💅
+            </button>
+        </form>
+    </div>
+</body>
+</html>
