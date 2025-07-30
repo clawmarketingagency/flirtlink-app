@@ -1,6 +1,3 @@
-// FLIRTLINK Frontend: Link-in-Bio AI Agent Platform
-// Tech: Next.js (Pages Router) + Tailwind CSS + Supabase Auth + API calls to Railway backend
-
 import { useState } from 'react'
 import axios from 'axios'
 
@@ -15,26 +12,25 @@ export default function Home() {
   const [agentId, setAgentId] = useState('')
   const [userInput, setUserInput] = useState('')
   const [chatLog, setChatLog] = useState([])
-  const [reply, setReply] = useState('')
   const [loading, setLoading] = useState(false)
 
-const handleCreateAgent = async () = > {
-  try {
-    const res = await axios.post(`${API_BASE} / create-agent`, {
-      creator_id: creatorId,
-      persona_name: personaName,
-      personality_prompt: prompt,
-      links,
-    })
-    setAgentId(res.data.agent_id)
-    setStep('chat')
-  } catch(e) {
-    console.error('Create Agent Error:', e)
-    alert('Error creating agent')
+  const handleCreateAgent = async () => {
+    try {
+      const res = await axios.post(`${API_BASE}/create-agent`, {
+        creator_id: creatorId,
+        persona_name: personaName,
+        personality_prompt: prompt,
+        links,
+      })
+      setAgentId(res.data.agent_id)
+      setStep('chat')
+    } catch (e) {
+      console.error('Create Agent Error:', e)
+      alert('Error creating agent')
+    }
   }
-}
 
-const sendChat = async () => {
+  const sendChat = async () => {
     if (!userInput) return
     setLoading(true)
     setChatLog(prev => [...prev, `You: ${userInput}`])
@@ -45,7 +41,6 @@ const sendChat = async () => {
       })
       const botReply = res.data.reply
       setChatLog(prev => [...prev, `Agent: ${botReply}`])
-      setReply(botReply)
       setUserInput('')
     } catch (e) {
       alert('Error sending message')
