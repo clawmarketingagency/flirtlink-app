@@ -116,4 +116,3 @@ async def get_agent(agent_id: str, db=Depends(get_db)):
         "prompt": row['prompt'],
         "links": row['links']
     }
-
