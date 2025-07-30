@@ -4,7 +4,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-const API_BASE = process.env.https://flirtlink-app.up.railway.ap
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'https://flirtlink-app.up.railway.app'
 
 export default function Home() {
   const [step, setStep] = useState('create')
